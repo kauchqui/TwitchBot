@@ -10,10 +10,33 @@ var options = {
   },
     identity: {
       username: "DroopBot",
-        password: "oauth:l3sndifgs19o4ky3it2od8zcx6r13w"
+        //your oauth: token
+        password: ""
     },
-    channels: ["droopygooch"]
+    //replace name in quotes with your channel
+    channels: ["channel"]
 };
 
 var client = new tmi.client(options);
 client.connect();
+
+
+
+
+client.on()
+
+
+
+client.on('chat',function(channel,user,message,self){
+    if (message == "!who")
+        //channel you want to display your message in, message
+    client.action("channel","I am a CS student at Emory University");
+});
+
+
+
+client.on('connected', function(address, port){
+
+    client.action("channel", "Hello i'm a new bot.");
+    console.log("Adress: "+ address + "Port: "+port);
+});
